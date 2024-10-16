@@ -21,7 +21,7 @@ def clean_db(f):
 
         delete_api = client.delete_api()
 
-        dt = datetime.datetime.now()
+        dt = datetime.datetime.now() + datetime.timedelta(seconds=1)
         start = "1970-01-01T00:00:00Z"
         stop = dt.strftime('%Y-%m-%dT%H:%M:%SZ')
 
