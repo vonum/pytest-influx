@@ -1,5 +1,9 @@
 # pytest-influx
+[![Build Status](https://vonum.semaphoreci.com/badges/pytest-influx/branches/master.svg)](https://vonum.semaphoreci.com/projects/pytest-influx)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 Pytest plugin for managing your influxdb instance between test runs.
+Currently only removes all records from influx between tests.
 
 ## Installation
 `pip install pytest-influx`
