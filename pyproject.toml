@@ -11,6 +11,10 @@ pytest = "^8.3.3"
 influxdb-client = "^1.46.0"
 
 
+[tool.poetry.group.dev.dependencies]
+ipython = "^8.28.0"
+pytest-env = "^1.1.5"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
