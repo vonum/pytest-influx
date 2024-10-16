@@ -1,0 +1,22 @@
+version: v1.0
+name: Initial Pipeline
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu2004
+blocks:
+  - name: 'Block #1'
+    task:
+      jobs:
+        - name: Test
+          commands:
+            - 'curl -sSL https://install.python-poetry.org | python3 - --git https://github.com/python-poetry/poetry.git@master'
+            - 'export PATH=$HOME/.local/bin:$PATH'
+            - checkout
+            - poetry install
+            - docker-compose up -d test-influx
+            - poetry run python -m pytest tests/ -s -vv
+      epilogue:
+        always:
+          commands:
+            - docker-compose down

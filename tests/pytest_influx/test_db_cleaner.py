@@ -35,7 +35,6 @@ def test_db_empty_at_start():
     url = os.getenv("INFLUXDB_URL", DEFAULT_INFLUXDB_URL)
     token = os.getenv("INFLUXDB_TOKEN", DEFAULT_INFLUXDB_TOKEN)
     org = os.getenv("INFLUXDB_ORG", DEFAULT_INFLUXDB_ORG)
-    bucket = os.getenv("INFLUXDB_BUCKET", DEFAULT_INFLUXDB_BUCKET)
 
     client = influxdb_client.InfluxDBClient(url=url, token=token, org=org)
     query_api = client.query_api()
@@ -47,4 +46,3 @@ def test_db_empty_at_start():
 
     tables = query_api.query(org=org, query=query)
     assert len(tables) == 0
-
