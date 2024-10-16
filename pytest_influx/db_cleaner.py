@@ -12,7 +12,6 @@ DEFAULT_INFLUXDB_BUCKET = "test"
 def clean_db(f):
     @functools.wraps(f)
     def wrapper(*args, **kwargs):
-        print("CLEANING INFLUX")
         url = os.getenv("INFLUXDB_URL", DEFAULT_INFLUXDB_URL)
         token = os.getenv("INFLUXDB_TOKEN", DEFAULT_INFLUXDB_TOKEN)
         org = os.getenv("INFLUXDB_ORG", DEFAULT_INFLUXDB_ORG)
