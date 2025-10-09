@@ -27,8 +27,17 @@ jobs:
       - name: Install Poetry
         run: pip install poetry
 
+      - name: Start influx test docker container
+        run: docker-compose up -d
+        working-directory: ./
+
       - name: Install dependencies
         run: poetry install
 
       - name: Run tests
         run: poetry run pytest
+
+      - name: Influx teardown
+        if: always()
+        run: docker-compose down
+        working-directory: ./
